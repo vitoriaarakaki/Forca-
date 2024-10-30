@@ -20,6 +20,7 @@ function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight / 1.8;
     }
+
     pencil.lineWidth = 5;
     pencil.lineCap = "round";
     pencil.lineJoin = "round";
@@ -134,6 +135,6 @@ function rearrangeButtons() {
     const btnContainer = document.querySelectorAll(".buttons-container")[1];
     body.classList.remove("initial");
     btnContainer.classList.remove("initial");
-    addBtn.classList.add("hide");
+    playBtn.classList.add("hide");
     giveUpBtn.classList.remove("hide");
 }

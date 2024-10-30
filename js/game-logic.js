@@ -1,11 +1,16 @@
-let words = ['Amor', 'céu', 'vento', 'livro', 'sonho', 'azul', 'noite', 'sol', 'praia', 'mesa', 'solta', 'verde', 
-    'ponte', 'fruta', 'vento', 'lume', 'canto', 'gosto', 'livro', 'vaga', 'pista', 'luz', 'tinta', 'escada', 'campo', 
-    'sorriso', 'cena', 'fogo', 'folha', 'espaço', 'ouro', 'festa', 'selo', 'faca', 'molho', 'janta', 'ponto', 'farol', 
-    'chuva', 'tela', 'ciclo', 'nota', 'chave', 'peixe', 'dia', 'prato', 'canto', 'nuvem', 'muro'];
+// let words = ['Amor', 'céu', 'vento', 'livro', 'sonho', 'azul', 'noite', 'sol', 'praia', 'mesa', 'solta', 'verde',
+//     'ponte', 'fruta', 'vento', 'lume', 'canto', 'gosto', 'livro', 'vaga', 'pista', 'luz', 'tinta', 'escada', 'campo',
+//     'sorriso', 'cena', 'fogo', 'folha', 'espaço', 'ouro', 'festa', 'selo', 'faca', 'molho', 'janta', 'ponto', 'farol',
+//     'chuva', 'tela', 'ciclo', 'nota', 'chave', 'peixe', 'dia', 'prato', 'canto', 'nuvem', 'muro'];
+
+let words = ['abc'];
 let chosenWord;
 let correctWord = "";
 let letters = [];
-let tries = 10;
+let tries = 5;
+let triesNeeded = 0;
+let correctTries = 0;
+let wrongTries = 0;
 let gameOver = false;
 
 function pickRandomWord() {
@@ -18,9 +23,11 @@ function checkLetter(letter) {
     if (!gameOver) {
         if (!letters.includes(letter)) {
             letters.push(letter);
+            triesNeeded++;
             if (chosenWord.includes(letter)) {
                 for (let i = 0; i < chosenWord.length; i++) {
                     if (chosenWord[i] === letter) {
+                        correctTries++;
                         drawCorrectLetter(i);
                         addCorrectLetter(i);
                     }
@@ -29,22 +36,27 @@ function checkLetter(letter) {
                 disableKey(letter, "correct");
             } else {
                 tries--;
+                wrongTries++;
                 drawHangman();
                 checkGameOver();
                 disableKey(letter, "incorrect");
             }
         }
-    }
+    }   
 }
 
 function checkGameOver() {
     if (tries == 0) {
         // gameover
+        playAgain();
         showEndGameText("lose", "☠️ Fim de Jogo! Você perdeu! ☠️");
         gameOver = true;
     }
+
     if (correctWord.length === chosenWord.length) {
         // gamewin
+        playAgain();
+        poof();
         showEndGameText("win", " 🏆 Parabéns! Você venceu! 🏆");
         gameOver = true;
     }

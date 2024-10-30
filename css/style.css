@@ -1,0 +1,341 @@
+:root {
+    --black-color: #48586f;
+    --white-color: #dcdcdc;
+    --red-color: #8B0000;
+    --green-color: #04AF70;
+    --yellow-color: #FFFF80;
+}
+
+/* GERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--white-color);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    user-select: none;
+}
+
+body {
+    margin: 0;
+    background-color: var(--black-color);
+    background-image: -webkit-radial-gradient(50% 50%, ellipse cover, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0.7) 275%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    overflow: overlay;
+    align-items: center;
+    position: relative;
+    text-align: center;
+
+    /* display: inline-grid; */
+}
+
+header,
+footer {
+    padding-block: .8rem .5rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80%;
+}
+
+button {
+    background-color: var(--white-color);
+    color: var(--black-color);
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+@keyframes zoom-in-zoom-out {
+    0% {
+        transform: scale(1.075, 1.075);
+    }
+
+    50% {
+        transform: scale(1.0, 1.0);
+    }
+
+    100% {
+        transform: scale(1.075, 1.075);
+    }
+}
+
+.hide {
+    display: none;
+}
+
+/* GAME */
+
+#game-status {
+    margin: 0;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+}
+
+.win {
+    color: var(--green-color);
+}
+
+.lose {
+    color: var(--red-color);
+}
+
+/* VIRTUAL KEYBOARD */
+
+/* #keyboard {
+    position: relative;
+} */
+
+.letter {
+    font-size: 1rem;
+    margin: 0.25rem;
+    width: 4rem;
+}
+
+.letter:hover {
+    color: var(--black-color);
+    background-color: var(--yellow-color);
+}
+
+/* 
+ Aqui precisamos reaplicar a cor no hover
+ por conta que o .letter:hover ignore se está correto
+ ou não.
+*/
+.correct,
+.correct:hover {
+    color: var(--white-color);
+    /* opacity: 0.5; */
+    background-color: var(--green-color);
+}
+
+.incorrect,
+.incorrect:hover {
+    color: var(--white-color);
+    /* opacity: 0.5; */
+    background-color: var(--red-color);
+}
+
+/* MENU */
+#play-btn {
+    background-color: var(--white-color);
+    color: var(--black-color);
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem;
+    cursor: pointer;
+
+    width: 200px;
+    height: 50px;
+    font-size: 1.1rem;
+
+    animation: zoom-in-zoom-out 2s ease-out infinite;
+    /* transition: all 0.4s ease-in-out; */
+}
+
+/* #play-btn:hover {
+    width: 225px;
+    height: 62.5px;
+    font-size: 1.23rem;
+
+    transition: all 0.6s ease-in-out;
+} */
+
+.buttons-container button {
+    position: flex;
+    margin: 2.0rem;
+    height: 45px;
+    width: 150px;
+    font-size: 1.0rem;
+
+    transition: all 0.6s ease-in-out;
+}
+
+.buttons-container button:hover {
+    margin: 2.0rem;
+    height: 50.62px;
+    width: 168.75px;
+    font-size: 1.12rem;
+
+    transition: all 0.6s ease-in-out;
+}
+
+.buttons-container.initial {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons-container.initial button {
+    align-self: center;
+    padding: 1rem;
+    width: 200px;
+    font-size: 1.1rem;
+}
+
+/* Play Again section */
+
+#playAgain-menu {
+    position: fixed;
+    background-color: rgba(220, 220, 220, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.15);
+    width: 700px;
+    height: 425px;
+    margin: 0 auto;
+    padding: 20px;
+    /* display: flex; */
+}
+
+#playAgain-menu.hide {
+    display: none;
+}
+
+.time {
+    color: var(--black-color);
+    position: relative;
+    top: 100px;
+    font-size: 32px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#tries-container {
+    margin-top: 17.5%;
+}
+
+#tries-text {
+    color: var(--black-color);
+    font-weight: bold;
+    font-size: 28px;
+}
+
+#correct-tries-container {
+    /* margin: 0 auto; */
+}
+
+#correct-tries-text {
+    color: var(--black-color);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#wrong-tries-container {
+    /* margin: 0 auto; */
+}
+
+#wrong-tries-text {
+    color: var(--black-color);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#playAgain-btn {
+    margin-top: 10%;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem;
+    cursor: pointer;
+
+    /* width: 200px;
+    height: 50px; */
+    /* transform: scale(1.0, 1.0); */
+    font-size: 1.1rem;
+
+    transition: all 1s ease-in-out;
+}
+
+#playAgain-btn:hover {
+    transform: scale(1.075, 1.075);
+    font-size: 1.23rem;
+
+    transition: all 1s ease-in-out;
+}
+
+/* ADD NEW WORD SECTION */
+#add-section {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#add-section.hide {
+    display: none;
+}
+
+#add-section input {
+    background-color: var(--white-color);
+    border-radius: 6px;
+    color: var(--black-color);
+    padding: 0.5rem;
+    width: 100%;
+}
+
+#add-section svg {
+    fill: var(--white-color);
+    width: 1rem;
+}
+
+#add-section p {
+    font-size: 0.8rem;
+    display: flex;
+    gap: 0.5rem;
+    margin-block: 1rem;
+}
+
+#add-section p.invalid,
+#add-section p.invalid svg {
+    fill: var(--red-color);
+    color: var(--red-color);
+    transition: fill 0.5s ease-in-out;
+    transition: color 0.2s ease-in-out;
+}
+
+#add-section .buttons-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 0.75rem;
+}
+
+footer a,
+p {
+    font-weight: 600;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 570px) {
+    canvas {
+        width: 100%;
+    }
+
+    .buttons-container.initial button {
+        width: 40%;
+    }
+
+    .letter {
+        width: 1.8rem;
+    }
+}

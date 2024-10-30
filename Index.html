@@ -9,50 +9,102 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="assets/style.css">
-    <title>FORCA</title>
-	<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3269/3269914.png" type="image/png">
-    <script defer src="assets/game-board.js"></script>
-    <script defer src="assets/game-logic.js"></script>
-    <script defer src="assets/buttons-functions.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3269/3269914.png" type="image/png">
 
-    <title>JOGO DA FORCA</title>
+    <title>Forca</title>
+
+    <script defer src="js/game-board.js"></script>
+    <script defer src="js/game-logic.js"></script>
+    <script defer src="js/buttons-functions.js"></script>
+    <script defer src="js/stopwatch.js"></script>
+    <script defer src="js/confetti.js"></script>
+
+    <!-- Alignment -->
+    <!-- <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .horizontal {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            /* Line thickness */
+            background-color: black;
+            /* Line color */
+        }
+
+        .vertical {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            /* Line thickness */
+            height: 100%;
+            background-color: black;
+            /* Line color */
+        }
+    </style> -->
 </head>
 
 <body class="initial">
-    <header>
+    <!-- <header>
         <h1>JOGO DA FORCA</h1>
-    </header>
+    </header> -->
+
+    <div id="playAgain-menu" class="hide">
+        <div class="stopwatch" class="hide">
+            <div class="time" id="time">Tempo: 00:00</div>
+        </div>
+
+        <div id="tries-container"> <span id="tries-text"></span></div>
+        <div id="wrong-tries-container"> <span id="wrong-tries-text"></span></div>
+        <div id="correct-tries-container"> <span id="correct-tries-text"></span></div>
+
+        <button id="playAgain-btn">Jogar Novamente</button>
+    </div>
+
     <main>
         <section id="game-board">
             <canvas width="0" height="0"></canvas>
             <p id="game-status"></p>
         </section>
+
         <section id="add-section" class="hide">
             <div>
                 <input id="new-word" type="text" placeholder="Digite uma palavra" autofocus>
-                <p id="notice">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                        <path
-                            d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM232 152C232 138.8 242.8 128 256 128s24 10.75 24 24v128c0 13.25-10.75 24-24 24S232 293.3 232 280V152zM256 400c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 385.9 273.4 400 256 400z" />
-                    </svg>
-                    Permitido palavras entre 4 até 8 letras e SEM acentuação!
-                </p>
                 <div class="buttons-container">
                     <button id="add-word-btn">Salvar e iniciar jogo</button>
                     <button id="cancel-btn">Cancelar</button>
                 </div>
             </div>
         </section>
+
         <section id="keyboard"></section>
+
+        <button id="play-btn">Jogar</button>
+        <!-- <button id="playagain-btn">Jogar</button> -->
+
         <section class="buttons-container initial">
-            <button id="play-btn">Novo Jogo</button>
-            <button id="add-btn">Adicionar palavra</button>
+            <!-- <button id="add-btn">Acrescentar palavra</button> -->
             <button id="give-up-btn" class="hide">Desistir</button>
         </section>
     </main>
+
+    <!-- Alignment -->
+        <!-- <div class="horizontal"></div>
+        <div class="vertical"></div> -->
+
     <footer>
-        
+        <!-- Footer content can go here -->
     </footer>
 </body>
 
