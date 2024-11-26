@@ -33,7 +33,7 @@ function resetGame() {
     gameOver = false;
     correctWord = "";
     letters = [];
-    tries = 10;
+    tries = 6;
 
     stopPoof();
 }

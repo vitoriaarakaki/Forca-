@@ -1,9 +1,8 @@
-// let words = ['Amor', 'céu', 'vento', 'livro', 'sonho', 'azul', 'noite', 'sol', 'praia', 'mesa', 'solta', 'verde',
-//     'ponte', 'fruta', 'vento', 'lume', 'canto', 'gosto', 'livro', 'vaga', 'pista', 'luz', 'tinta', 'escada', 'campo',
-//     'sorriso', 'cena', 'fogo', 'folha', 'espaço', 'ouro', 'festa', 'selo', 'faca', 'molho', 'janta', 'ponto', 'farol',
-//     'chuva', 'tela', 'ciclo', 'nota', 'chave', 'peixe', 'dia', 'prato', 'canto', 'nuvem', 'muro'];
+let words = ['Amor', 'céu', 'vento', 'livro', 'sonho', 'azul', 'noite', 'sol', 'praia', 'mesa', 'solta', 'verde',
+    'ponte', 'fruta', 'vento', 'lume', 'canto', 'gosto', 'livro', 'vaga', 'pista', 'luz', 'tinta', 'escada', 'campo',
+    'sorriso', 'cena', 'fogo', 'folha', 'espaço', 'ouro', 'festa', 'selo', 'faca', 'molho', 'janta', 'ponto', 'farol',
+    'chuva', 'tela', 'ciclo', 'nota', 'chave', 'peixe', 'dia', 'prato', 'canto', 'nuvem', 'muro'];
 
-let words = ['abc'];
 let chosenWord;
 let correctWord = "";
 let letters = [];

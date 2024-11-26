@@ -29,25 +29,6 @@ function resizeCanvas() {
 
 function drawHangman() {
     switch (tries) {
-        case 9:
-            pencil.beginPath();
-            pencil.moveTo((canvas.width / 3) + canvas.width / 3, canvas.height / 2);
-            pencil.lineTo(canvas.width / 3, canvas.height / 2);
-            pencil.stroke();
-            break;
-        case 8:
-            pencil.moveTo(canvas.width / 2.5, canvas.height / 2);
-            pencil.lineTo(canvas.width / 2.5, canvas.height / 10);
-            pencil.stroke();
-            break;
-        case 7:
-            pencil.lineTo(canvas.width / 1.8, canvas.height / 10);
-            pencil.stroke();
-            break;
-        case 6:
-            pencil.lineTo(canvas.width / 1.8, canvas.height / 6);
-            pencil.stroke();
-            break;
         case 5:
             pencil.beginPath();
             pencil.arc(canvas.width / 1.8, canvas.height / 4.5, 15, 0, 2 * Math.PI);
@@ -83,6 +64,22 @@ function drawHangman() {
 }
 
 function drawLines() {
+    //9
+    pencil.beginPath();
+    pencil.moveTo((canvas.width / 3) + canvas.width / 3, canvas.height / 2);
+    pencil.lineTo(canvas.width / 3, canvas.height / 2);
+    pencil.stroke();
+    //8
+    pencil.moveTo(canvas.width / 2.5, canvas.height / 2);
+    pencil.lineTo(canvas.width / 2.5, canvas.height / 10);
+    pencil.stroke();
+    //7
+    pencil.lineTo(canvas.width / 1.8, canvas.height / 10);
+    pencil.stroke();
+    //6
+    pencil.lineTo(canvas.width / 1.8, canvas.height / 6);
+    pencil.stroke();
+
     let axis = (canvas.width / 2) / chosenWord.length;
     let xPosition = (canvas.width / 2) - ((chosenWord.length / 2) * axis) + 15;
     let lineWidth = axis / 1.5;
